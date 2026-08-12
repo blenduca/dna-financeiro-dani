@@ -1,0 +1,10 @@
+.DS_Store
+node_modules/
+.env
+.env.*
+dist/
+build/
+.vscode/
+.idea/
+.agents/
+skills-lock.json

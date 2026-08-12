@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diagnóstico DNA Financeiro | MEGER</title>
+<meta name="description" content="31 perguntas, 5 a 7 minutos. O cruzamento entre como você executa e por que você decide — com o resultado na tela.">
+<meta name="robots" content="noindex">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,0..100,0..1;1,9..144,300..700,0..100,0..1&display=swap">
+<link rel="stylesheet" href="estilo.css">
+<script src="assets/atribuicao.js"></script>
+</head>
+<body>
+
+<header class="topo">
+  <div class="envelope topo__envelope">
+    <a href="index.html" class="marca" aria-label="MEGER, Clínica Financeira — voltar">
+      <span class="simbolo" aria-hidden="true"></span>
+      <span class="marca__texto">
+        <span class="marca__nome">MEGER</span>
+        <span class="marca__descritor">Clínica Financeira</span>
+      </span>
+    </a>
+    <span class="nota">DNA Financeiro</span>
+  </div>
+</header>
+
+<!-- Barra de progresso: só existe durante o percurso. O preenchimento é VERDE —
+     dourado sobre creme dá 2,74 e reprova até o piso de 3,0 de elemento gráfico. -->
+<div class="progresso" id="progresso" hidden>
+  <div class="envelope envelope--estreito">
+    <div class="progresso__topo">
+      <span id="progresso-rotulo">Pergunta 1 de 31</span>
+      <span id="progresso-pct">0%</span>
+    </div>
+    <div class="progresso__trilho">
+      <div class="progresso__preenche" id="progresso-preenche"
+           role="progressbar" aria-label="Progresso do diagnóstico"
+           aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+    </div>
+  </div>
+</div>
+
+<main>
+
+<!-- ================================================================
+     PASSO 0 · INTRODUÇÃO
+     ================================================================ -->
+<section class="passo" id="tela-intro">
+  <div class="envelope envelope--estreito">
+    <span class="sobretitulo">DNA Financeiro</span>
+    <h1>Antes de falar de dinheiro, vamos falar de como você decide.</h1>
+    <p class="lide">São <strong>31 perguntas</strong>, entre 5 e 7 minutos. Nenhuma delas tem resposta
+      certa, e o resultado aparece na tela assim que você terminar.</p>
+
+    <div class="eixos" style="margin-top: var(--s-32)">
+      <div class="eixo" style="padding-inline: 0">
+        <span class="eixo__chave" style="color: var(--verde)">COMO</span>
+        <p>Vinte afirmações sobre o seu comportamento com dinheiro. Responda pelo que você
+          <em>faz</em>, não pelo que gostaria de fazer.</p>
+      </div>
+      <div class="eixo" style="padding-inline: 0">
+        <span class="eixo__chave" style="color: var(--verde)">POR QUÊ</span>
+        <p>Nove escolhas entre duas frases igualmente verdadeiras. Escolha a que pesa mais para você,
+          mesmo que as duas sirvam.</p>
+      </div>
+    </div>
+
+    <p style="margin-top: var(--s-32)">
+      <button type="button" class="botao" id="btn-comecar">Começar</button>
+    </p>
+    <p class="nota" id="aviso-retomada" hidden style="margin-top: var(--s-16)">
+      Encontramos um diagnóstico começado neste aparelho — vamos retomar de onde você parou.
+      <button type="button" class="botao botao--discreto" id="btn-recomecar"
+              style="padding: var(--s-4) var(--s-16); font-size: var(--fs-xs); margin-left: var(--s-8)">Recomeçar</button>
+    </p>
+
+    <p class="nota" style="margin-top: var(--s-32)">Instrumento de autopercepção para orientar uma
+      conversa financeira. Não é diagnóstico psicológico nem laudo.</p>
+  </div>
+</section>
+
+<!-- ================================================================
+     PASSO 1 · PERCURSO (renderizado por quiz.js)
+     ================================================================ -->
+<section class="passo" id="tela-percurso" hidden>
+  <div class="envelope envelope--estreito">
+    <form id="form-percurso" novalidate>
+      <fieldset>
+        <legend class="passo__pergunta" id="percurso-pergunta" tabindex="-1">…</legend>
+        <p class="passo__dica" id="percurso-dica" hidden></p>
+        <div id="percurso-opcoes"></div>
+      </fieldset>
+    </form>
+
+    <div style="display: flex; gap: var(--s-16); margin-top: var(--s-32); flex-wrap: wrap">
+      <button type="button" class="botao botao--discreto" id="btn-voltar">Voltar</button>
+      <button type="button" class="botao" id="btn-avancar" disabled>Continuar</button>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     PASSO 2 · CAPTURA — o resultado JÁ está calculado
+     ================================================================ -->
+<section class="passo bloco--verde" id="tela-captura" hidden>
+  <div class="envelope envelope--estreito">
+    <span class="sobretitulo">Pronto</span>
+    <h2>O seu diagnóstico está pronto.</h2>
+    <p class="lide">Para onde enviamos a sua cópia? Você vê o resultado na tela em seguida, de
+      qualquer forma.</p>
+
+    <form class="formulario" id="form-captura" novalidate style="margin-top: var(--s-32)">
+      <div class="campo" id="campo-nome">
+        <label for="nome">Como podemos te chamar</label>
+        <input type="text" id="nome" name="nome" autocomplete="name" aria-describedby="erro-nome">
+        <span class="campo__erro" id="erro-nome" role="alert"></span>
+      </div>
+
+      <div class="campo" id="campo-email">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" autocomplete="email" inputmode="email" aria-describedby="erro-email">
+        <span class="campo__erro" id="erro-email" role="alert"></span>
+      </div>
+
+      <div class="campo" id="campo-whatsapp">
+        <label for="whatsapp">WhatsApp</label>
+        <input type="tel" id="whatsapp" name="whatsapp" autocomplete="tel" inputmode="tel"
+               placeholder="(00) 00000-0000" aria-describedby="erro-whatsapp">
+        <span class="campo__erro" id="erro-whatsapp" role="alert"></span>
+      </div>
+
+      <!-- Honeypot: fora da tela, sem display:none, e NUNCA devolve erro. -->
+      <div class="armadilha" aria-hidden="true">
+        <label for="empresa_site">Site da empresa</label>
+        <input type="text" id="empresa_site" name="empresa_site" tabindex="-1" autocomplete="off">
+      </div>
+
+      <div class="campo" id="campo-consentimento">
+        <div class="consentimento">
+          <input type="checkbox" id="consentimento" name="consentimento" aria-describedby="erro-consentimento">
+          <!-- ⚠️ O texto exibido vai LITERAL no payload (`consent_texto`) — é o que
+               prova o que a pessoa leu. Reescrever exige versionar, não editar por
+               cima. Ele NOMEIA o que é coletado, porque aqui há faixa de renda e
+               perfil comportamental: dado que ninguém espera ver vazado. -->
+          <label for="consentimento" id="texto-consentimento">Autorizo a MEGER a guardar as minhas
+            respostas — incluindo a faixa de faturamento e o perfil de comportamento financeiro que
+            elas geram — e a me contatar por e-mail e WhatsApp sobre este diagnóstico. Posso pedir a
+            exclusão a qualquer momento.</label>
+        </div>
+        <span class="campo__erro" id="erro-consentimento" role="alert"></span>
+      </div>
+
+      <div class="aviso-envio aviso-envio--erro" id="aviso-envio" role="alert" hidden></div>
+
+      <button type="submit" class="botao botao--largo" id="btn-enviar">Ver o meu diagnóstico</button>
+    </form>
+  </div>
+</section>
+
+<!-- ================================================================
+     PASSO 3 · RESULTADO
+     ================================================================ -->
+<section class="passo" id="tela-resultado" hidden style="padding-block: 0">
+
+  <div class="faixa bloco--marrom arquetipo">
+    <div class="envelope">
+      <span class="arquetipo__rotulo">O seu DNA Financeiro</span>
+      <h1 class="arquetipo__nome" id="res-nome" tabindex="-1">—</h1>
+      <p class="arquetipo__motivacao" id="res-motivacao"></p>
+
+      <div class="leituras">
+        <div class="leitura">
+          <h3>A sua força</h3>
+          <p id="res-forca"></p>
+        </div>
+        <div class="leitura">
+          <h3>A sua sangria invisível</h3>
+          <p id="res-sangria"></p>
+        </div>
+        <div class="leitura">
+          <h3>O primeiro movimento</h3>
+          <p id="res-movimento"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="faixa">
+    <div class="envelope envelope--estreito">
+      <span class="sobretitulo">Como você executa</span>
+      <h2>As cinco dimensões do seu comportamento</h2>
+      <p class="nota">A escala vai de 0 a 100 e descreve o seu perfil, não uma nota. Não existe
+        posição melhor: existe a sua, e o que ela produz.</p>
+
+      <div class="dimensoes" id="res-dimensoes"></div>
+
+      <p class="aviso-envio aviso-envio--validacao">
+        <strong>Prévia para aprovação.</strong> Esta versão existe para validar layout, texto e o
+        formato do diagnóstico. O envio está desligado: <strong>nada do que você respondeu foi
+        registrado</strong>.
+      </p>
+      <div class="ressalva">
+        <strong>O que este resultado é — e o que não é.</strong>
+        <p>As cinco dimensões vêm do modelo <em>Big Five</em>, consolidado em psicologia da
+          personalidade. A leitura de motivação vem do <em>eneagrama</em>, que é um modelo de
+          autoconhecimento <strong>sem validação científica</strong> — os dois não têm o mesmo
+          estatuto, e você merece saber disso.</p>
+        <p>É um instrumento de autopercepção para orientar uma conversa sobre dinheiro.
+          Não é diagnóstico psicológico, não é laudo e não é recomendação de investimento.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="faixa bloco--verde">
+    <div class="envelope envelope--estreito" style="text-align: center">
+      <span class="sobretitulo">Próximo passo</span>
+      <h2>O primeiro movimento você já tem. O segundo depende do seu caso.</h2>
+      <p class="lide">Se quiser conversar sobre o que apareceu aqui, o caminho é direto.</p>
+      <p style="margin-top: var(--s-32)">
+        <a class="botao" id="res-whatsapp" href="https://wa.me/5511941335119" target="_blank" rel="noopener noreferrer">Falar com a equipe da Dani</a>
+      </p>
+      <p class="nota" style="margin-top: var(--s-16)" id="res-email-nota"></p>
+    </div>
+  </div>
+
+</section>
+
+</main>
+
+<footer class="rodape">
+  <div class="envelope" style="display: grid; gap: var(--s-24); grid-template-columns: auto 1fr; align-items: center">
+    <span class="selo" aria-hidden="true"></span>
+    <div>
+      <p><strong>MEGER · Clínica Financeira</strong></p>
+      <p style="margin-top: var(--s-8)">DNA Financeiro · diagnóstico de comportamento financeiro.
+        Conteúdo educativo; não constitui recomendação individual de investimento.</p>
+      <p style="margin-top: var(--s-8)">© 2026 MEGER.</p>
+    </div>
+  </div>
+</footer>
+
+<script type="module" src="quiz.js"></script>
+</body>
+</html>
