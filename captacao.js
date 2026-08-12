@@ -22,10 +22,7 @@
       a resposta crua de cada afirmação é sensibilidade extra sem uso definido.
    ========================================================================== */
 
-/* Porta de entrada: Core | Lead | Webhook no bn8n (a instância que operamos).
-   ⚠️ NÃO é `automacao.bagents.cloud`, onde vivem os dois webhooks antigos deste
-   funil. Publicar num host e apontar a página para o outro dá 404 em produção. */
-export const WEBHOOK = 'https://bn8n.bagents.cloud/webhook/lead';
+export const WEBHOOK = 'https://automacao.bagents.cloud/webhook/dna-dani-meger';
 
 export const WHATSAPP = 'https://wa.me/5511941335119';
 
@@ -168,17 +165,15 @@ export function montarPayload(resultado, qualificacao) {
   };
 }
 
-/** POST. Rejeita em erro para o chamador decidir o que mostrar. */
+/** POST para o webhook. Lança em caso de falha para o chamador decidir o que mostrar. */
 export async function enviar(payload) {
-  /* ── CÓPIA DE VALIDAÇÃO · TRECHO GERADO ──────────────────────────────────
-     No repo do cliente aqui vai um POST real para o n8n. Nesta cópia o envio
-     está DESLIGADO de propósito: os fluxos de captação ainda não foram
-     ativados e o endpoint devolve 404.
-     Resolve como se tivesse dado certo para o percurso chegar ao resultado —
-     que é o que se está validando. Quem completa vê, na tela do diagnóstico,
-     um aviso dizendo que nada foi registrado.
-     A validação dos campos acima continua inteira.
-     Corrigir na origem e republicar; não editar aqui. */
-  if (window.console) console.info('[DNA] prévia de validação: envio desligado.', payload);
+  const resposta = await fetch(WEBHOOK, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  });
+  if (!resposta.ok) {
+    throw new Error('[DNA] webhook retornou ' + resposta.status);
+  }
   return true;
 }
