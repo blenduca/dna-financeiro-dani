@@ -167,13 +167,20 @@ export function montarPayload(resultado, qualificacao) {
 
 /** POST para o webhook. Lança em caso de falha para o chamador decidir o que mostrar. */
 export async function enviar(payload) {
+  if (window.console) console.info('[DNA] enviando payload:', payload);
+
   const resposta = await fetch(WEBHOOK, {
     method: 'POST',
+    mode: 'cors',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload),
   });
+
   if (!resposta.ok) {
-    throw new Error('[DNA] webhook retornou ' + resposta.status);
+    const corpo = await resposta.text().catch(() => '');
+    throw new Error('[DNA] webhook retornou ' + resposta.status + (corpo ? ': ' + corpo : ''));
   }
+
+  if (window.console) console.info('[DNA] lead registrado com sucesso. status:', resposta.status);
   return true;
 }
