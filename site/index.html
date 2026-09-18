@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DNA Financeiro — diagnóstico gratuito para médicos | MEGER</title>
+<meta name="description" content="Um diagnóstico do seu comportamento financeiro em 5 minutos: o que faz o seu dinheiro sair sem você perceber, e qual é o primeiro movimento. Gratuito.">
+
+<!-- Open Graph: a imagem fica em JPEG de propósito — WhatsApp e Facebook não
+     previsualizam WebP com confiabilidade, e este link circula em WhatsApp. -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="DNA Financeiro — diagnóstico gratuito para médicos">
+<meta property="og:description" content="Você fatura como poucos. E ainda assim o dinheiro não fica.">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="MEGER · Clínica Financeira">
+<!-- TODO(v2.1): og:url e og:image (1200x630, .jpg) quando o domínio existir. -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,0..100,0..1;1,9..144,300..700,0..100,0..1&display=swap">
+<link rel="stylesheet" href="estilo.css">
+<link rel="stylesheet" href="assets/specular-button.css">
+<script src="assets/atribuicao.js"></script>
+<script type="module" src="assets/specular-button.js"></script>
+</head>
+<body>
+
+<a href="#conteudo" class="botao pular">Pular para o conteúdo</a>
+
+<header class="topo">
+  <div class="envelope topo__envelope">
+    <a href="#" class="marca" aria-label="MEGER, Clínica Financeira">
+      <span class="simbolo" aria-hidden="true"></span>
+      <span class="marca__texto">
+        <span class="marca__nome">MEGER</span>
+        <span class="marca__descritor">Clínica Financeira</span>
+      </span>
+    </a>
+    <a href="teste.html" class="botao botao--secundario" data-cta="topo">Fazer o diagnóstico</a>
+  </div>
+</header>
+
+<main id="conteudo">
+
+<!-- ===== 1 · PRODUTO / OPORTUNIDADE ================================== -->
+<section class="faixa heroi">
+  <div class="envelope heroi__grade">
+    <!-- A hero é a única seção sem scroll pra revelar — ela já nasce em tela.
+         O MESMO `[data-revela]` funciona aqui de graça: o IntersectionObserver
+         dispara no primeiro `observe()`, ainda no carregamento, porque estes
+         elementos já estão dentro do viewport quando o `revela.js` roda. Por
+         isso a página deixa de abrir estática — sem precisar de um segundo
+         sistema de animação só para o topo. -->
+    <div>
+      <span class="sobretitulo" data-revela>DNA Financeiro · diagnóstico gratuito</span>
+      <h1 data-revela>Você fatura como poucos. E ainda assim o dinheiro não fica.</h1>
+      <p class="lide medida" data-revela>O problema quase nunca é quanto entra. É o que a sua forma de decidir
+        faz com o que já entrou, e isso não aparece em planilha nenhuma.</p>
+
+      <!-- As três garantias substituem a escassez falsa da v1 ("o acesso gratuito
+           é por tempo limitado… apenas durante esta campanha de posicionamento").
+           A marca evita ativamente urgência artificial; aqui só entra o verificável. -->
+      <!-- Um ícone por garantia, desenhado no mesmo traço (1,6 em viewBox 24):
+           relógio para a duração, tela para onde o resultado aparece, etiqueta
+           para o preço. Antes eram três cópias do símbolo da marca, que não
+           dizia qual item era qual. -->
+      <ul class="garantias" data-revela>
+        <li>
+          <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="9"/><path d="M12 6.8V12l3.4 2"/>
+          </svg> 5 a 7 minutos
+        </li>
+        <li>
+          <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2.8" y="4" width="18.4" height="13" rx="2"/><path d="M8.5 21h7M12 17v4"/>
+          </svg> Resultado na hora, na tela
+        </li>
+        <li>
+          <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3.6 12.6V4.6a1 1 0 0 1 1-1h8a1 1 0 0 1 .7.3l7 7a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-1.4 0l-7-7a1 1 0 0 1-.3-.7Z"/>
+            <circle cx="8" cy="8" r="1.5"/>
+          </svg> Sem custo
+        </li>
+      </ul>
+
+      <p style="margin-top: var(--s-32)" data-revela>
+        <a href="teste.html" class="specular-button specular-button--lg" data-cta="heroi"
+           data-sb='{"radius":60,"lineColor":"#E0BD7A","baseColor":"#D1A45E","intensity":3,"shineSize":5,"shineFade":40,"thickness":1,"speed":1.5,"followMouse":false,"proximity":250,"autoAnimate":true}'
+           style="--sb-radius:60px; --sb-blur:0px; --sb-text-color:#F0E7D4; background:#A77229;">
+          <span class="specular-button__fx" aria-hidden="true"></span>
+          <span class="specular-button__label">Começar o diagnóstico</span>
+        </a>
+      </p>
+    </div>
+
+    <figure class="heroi__figura" data-revela>
+      <img class="arco" src="assets/dani-palco.webp" alt="Daniele Meger" width="900" height="1125" fetchpriority="high" decoding="async">
+    </figure>
+  </div>
+</section>
+
+<!-- ===== 2 · O PROBLEMA ============================================== -->
+<section class="faixa bloco--areia" id="problema">
+  <div class="envelope">
+    <span class="sobretitulo" data-revela>O problema</span>
+    <h2 class="medida" data-revela>Quatro coisas acontecem ao mesmo tempo, e nenhuma delas aparece no extrato.</h2>
+    <p class="lide medida" data-revela>Você estudou uma década, construiu reputação, montou a estrutura.
+      Por fora, chegou. Por dentro, a conta não fecha do jeito que deveria.</p>
+
+    <ul class="diagnostico">
+      <li data-revela>
+        <h3>O dinheiro some na virada</h3>
+        <p>Você fatura muito e não consegue dizer para onde foi. Não é descontrole: é que ninguém
+          nunca te mostrou onde olhar.</p>
+      </li>
+      <li data-revela>
+        <h3>PF e PJ misturados</h3>
+        <p>O caixa da clínica e a conta de casa se confundem, e abrir o extrato virou uma coisa que
+          se adia.</p>
+      </li>
+      <li data-revela>
+        <h3>Apagando incêndio</h3>
+        <p>Você sabe o que precisa fazer para o futuro. O presente não deixa. Toda decisão de longo
+          prazo perde para a urgência do dia.</p>
+      </li>
+      <li data-revela>
+        <h3>O peso do padrão</h3>
+        <p>Sustentar o padrão que se espera de você custa, e esse custo nunca entrou em nenhuma conta.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<div class="transicao" role="presentation"></div>
+
+<!-- ===== 3 · O MECANISMO (o que a v1 não tinha) ====================== -->
+<section class="faixa bloco--verde" id="metodo">
+  <div class="envelope">
+    <span class="sobretitulo" data-revela>Como o diagnóstico funciona</span>
+    <h2 class="medida" data-revela>Dois modelos, uma leitura só.</h2>
+    <p class="lide medida" data-revela>Comportamento financeiro tem duas camadas, e medir uma sem a
+      outra explica metade. O DNA Financeiro cruza as duas.</p>
+
+    <div class="eixos">
+      <div class="eixo" data-revela>
+        <span class="eixo__chave">COMO</span>
+        <p><strong>Big Five.</strong> O comportamento observável: o quanto você organiza, como decide
+          sob pressão, o quanto aceita mudar de estrutura, a facilidade de cobrar, o peso do ambiente
+          no seu padrão.</p>
+      </div>
+      <div class="eixo" data-revela>
+        <span class="eixo__chave">POR QUÊ</span>
+        <p><strong>Eneagrama.</strong> A motivação por baixo da decisão: autonomia, reconhecimento ou
+          segurança. É o que explica por que o mesmo conselho funciona para um médico e não para o
+          colega da sala ao lado.</p>
+      </div>
+    </div>
+
+    <p class="lide medida" data-revela>O cruzamento das duas camadas devolve <em>um entre nove perfis</em>. Com ele vêm
+      a sangria específica que essa combinação produz, a força que ela te dá e o primeiro movimento
+      que faz sentido para você.</p>
+  </div>
+</section>
+
+<!-- ===== 3B · OS 9 PERFIS ============================================ -->
+<section class="faixa bloco--areia" id="perfis">
+  <div class="envelope">
+    <span class="sobretitulo" data-revela>Os 9 perfis</span>
+    <h2 class="medida" data-revela>Os nove perfis financeiros.</h2>
+    <p class="lide medida" data-revela>Todo mundo tem um dominante. Leia os nove e observe: um deles vai
+      incomodar mais que os outros — normalmente é o seu.</p>
+
+    <div class="grupo-perfis grupo-perfis--instinto" data-revela>
+      <div class="grupo-perfis__cab">
+        <span class="grupo-perfis__centro">Centro do instinto</span>
+        <p class="grupo-perfis__descricao">Reage pelo corpo — controle, força e paz são a moeda.</p>
+      </div>
+      <div class="grade-perfis">
+        <article class="perfil-card">
+          <span class="perfil-card__num">01</span>
+          <h3>O Íntegro</h3>
+        </article>
+        <article class="perfil-card">
+          <span class="perfil-card__num">02</span>
+          <h3>O Comandante</h3>
+        </article>
+        <article class="perfil-card">
+          <span class="perfil-card__num">03</span>
+          <h3>O Conciliador</h3>
+        </article>
+      </div>
+    </div>
+
+    <div class="grupo-perfis grupo-perfis--emocao" data-revela>
+      <div class="grupo-perfis__cab">
+        <span class="grupo-perfis__centro">Centro da emoção</span>
+        <p class="grupo-perfis__descricao">Decide pelo vínculo e pela imagem — o dinheiro fala de quem você é.</p>
+      </div>
+      <div class="grade-perfis">
+        <article class="perfil-card">
+          <span class="perfil-card__num">04</span>
+          <h3>O Provedor</h3>
+        </article>
+        <article class="perfil-card">
+          <span class="perfil-card__num">05</span>
+          <h3>O Realizador</h3>
+        </article>
+        <article class="perfil-card">
+          <span class="perfil-card__num">06</span>
+          <h3>O Autêntico</h3>
+        </article>
+      </div>
+    </div>
+
+    <div class="grupo-perfis grupo-perfis--razao" data-revela>
+      <div class="grupo-perfis__cab">
+        <span class="grupo-perfis__centro">Centro da razão</span>
+        <p class="grupo-perfis__descricao">Decide pela cabeça — segurança e informação antes de agir.</p>
+      </div>
+      <div class="grade-perfis">
+        <article class="perfil-card">
+          <span class="perfil-card__num">07</span>
+          <h3>O Estrategista</h3>
+        </article>
+        <article class="perfil-card">
+          <span class="perfil-card__num">08</span>
+          <h3>O Guardião</h3>
+        </article>
+        <article class="perfil-card">
+          <span class="perfil-card__num">09</span>
+          <h3>O Entusiasta</h3>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 4 · O QUE VOCÊ RECEBE ====================================== -->
+<section class="faixa bloco--areia" id="entrega">
+  <div class="envelope">
+    <span class="sobretitulo" data-revela>O que você recebe</span>
+    <h2 class="medida" data-revela>Um diagnóstico, não um rótulo.</h2>
+
+    <ul class="diagnostico">
+      <li data-revela>
+        <h3>O seu perfil, nomeado</h3>
+        <p>Qual dos nove combina motivação e execução do seu jeito, com a leitura das cinco dimensões
+          de comportamento, na tela, na hora.</p>
+      </li>
+      <li data-revela>
+        <h3>A sua sangria invisível</h3>
+        <p>O vazamento específico que essa combinação produz. Não o genérico "gaste menos": o padrão
+          que o seu perfil repete e que passa despercebido justamente por parecer normal.</p>
+      </li>
+      <li data-revela>
+        <h3>A força a alavancar</h3>
+        <p>Todo perfil tem uma. A leitura começa por ela, porque é dela que sai a correção, e não da
+          disciplina que você já tem de sobra em tudo o mais.</p>
+      </li>
+      <li data-revela>
+        <h3>O primeiro movimento</h3>
+        <p>Uma ação concreta e verificável, de organização, para os próximos dias. Sem recomendação de
+          investimento e sem promessa de retorno — não é isso que a Meger faz.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== 5 · PROVA ================================================== -->
+<section class="faixa bloco--marrom" id="prova">
+  <div class="envelope">
+    <span class="sobretitulo" data-revela>Quem está por trás</span>
+    <h2 class="medida" data-revela>Vinte e quatro anos lendo a relação de gente de alta renda com dinheiro.</h2>
+
+    <!-- Os dois números que a própria cliente já publica. Nenhum número de
+         RESULTADO entra: não existe em fonte nenhuma da conta, e não se estima. -->
+    <ul class="numeros">
+      <li data-revela>
+        <span class="numeros__valor">400<span class="numeros__mais">+</span></span>
+        <p class="numeros__rotulo">Famílias de profissionais da saúde</p>
+        <p class="numeros__nota">Acompanhadas pela Dani ao longo da carreira.</p>
+      </li>
+      <li data-revela>
+        <span class="numeros__valor">24<span class="numeros__mais">+</span></span>
+        <p class="numeros__rotulo">Anos dentro do sistema financeiro</p>
+        <p class="numeros__nota">Duas décadas em private banking antes da Meger.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== 6 · AUTORIDADE ============================================= -->
+<section class="faixa" id="autoridade">
+  <div class="envelope autoridade">
+    <figure class="autoridade__figura" data-revela>
+      <img class="arco" src="assets/dani-estudio.webp" alt="Daniele Meger, fundadora da MEGER" width="800" height="1000" loading="lazy" decoding="async">
+    </figure>
+    <div data-revela>
+      <span class="sobretitulo">Quem conduz</span>
+      <h2>Dani Meger</h2>
+      <p class="lide">Estrategista financeira de médicos e fundadora da MEGER.</p>
+      <p>Estrategista financeira, +24 anos dentro do sistema financeiro. A Meger nasceu de uma constatação simples:
+        médico não precisa virar contador nem estudar finanças. Precisa de uma estrutura que execute,
+        e de alguém que leia o negócio dele antes de dar qualquer conselho.</p>
+      <p>É por isso que tudo aqui começa por um diagnóstico. <em>Diagnóstico antes do discurso</em> é
+        a regra da casa, e este teste é a versão gratuita dela.</p>
+      <p style="margin-top: var(--s-32)">
+        <a href="teste.html" class="botao botao--secundario" data-cta="autoridade">Fazer o meu diagnóstico</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 7 · CONTATO / CTA ========================================== -->
+<section class="faixa bloco--verde" id="comecar">
+  <!-- Único eixo centralizado da página, e de propósito: é o fecho, não tem
+       nada depois para acompanhar o alinhamento. Vai com `--estreito` junto —
+       ver a nota de `.envelope--centrado` no CSS. -->
+  <div class="envelope envelope--estreito envelope--centrado">
+    <span class="sobretitulo" data-revela>Começar</span>
+    <h2 data-revela>São 31 perguntas. Nenhuma delas é sobre quanto você ganha.</h2>
+    <p class="lide" data-revela>Você responde primeiro e vê o resultado no fim. Os seus dados só entram
+      quando o diagnóstico já está pronto — para a gente saber para quem enviar.</p>
+    <p style="margin-top: var(--s-32)" data-revela>
+      <a href="teste.html" class="specular-button specular-button--lg" data-cta="final"
+         data-sb='{"radius":60,"lineColor":"#E0BD7A","baseColor":"#D1A45E","intensity":3,"shineSize":5,"shineFade":40,"thickness":1,"speed":1.5,"followMouse":false,"proximity":250,"autoAnimate":true}'
+         style="--sb-radius:60px; --sb-blur:0px; --sb-text-color:#F0E7D4; background:#A77229;">
+        <span class="specular-button__fx" aria-hidden="true"></span>
+        <span class="specular-button__label">Começar o diagnóstico</span>
+      </a>
+    </p>
+    <p class="nota" style="margin-top: var(--s-16)" data-revela>Instrumento de autopercepção para
+      orientar uma conversa financeira. Não é diagnóstico psicológico nem laudo.</p>
+  </div>
+</section>
+
+</main>
+
+<!-- 🔴 URLS PENDENTES: só o WhatsApp é real (a mesma de `captacao.js`, que é a
+     fonte da verdade do número). Instagram, LinkedIn, Substack e e-mail não
+     existem em nenhum material da conta e ficaram em `#` de propósito —
+     handle inventado vira link quebrado em produção. Trocar os quatro
+     `href="#"` marcados com TODO antes de publicar. -->
+<footer class="rodape rodape--completo">
+  <div class="envelope rodape__grade">
+    <div class="rodape__marca">
+      <span class="selo" aria-hidden="true"></span>
+      <div>
+        <p><strong>MEGER · Clínica Financeira</strong></p>
+        <p class="rodape__descricao">DNA Financeiro · diagnóstico de comportamento financeiro.
+          Conteúdo educativo; não constitui recomendação individual de investimento.</p>
+      </div>
+    </div>
+
+    <nav class="rodape__redes" aria-label="MEGER nas redes">
+      <!-- TODO(links): perfil real do Instagram. -->
+      <a class="rodape__rede" href="#" rel="noopener noreferrer">
+        <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/>
+          <circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/>
+        </svg> Instagram
+      </a>
+      <!-- TODO(links): perfil real do LinkedIn. -->
+      <a class="rodape__rede" href="#" rel="noopener noreferrer">
+        <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="4"/>
+          <path d="M7.6 10.8V17M12 17v-3.4a2.4 2.4 0 0 1 4.8 0V17"/>
+          <circle cx="7.6" cy="7.4" r="1.1" fill="currentColor" stroke="none"/>
+        </svg> LinkedIn
+      </a>
+      <a class="rodape__rede" href="https://wa.me/5511941335119" target="_blank" rel="noopener noreferrer">
+        <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M20.5 11.6a8.4 8.4 0 0 1-12.6 7.3L3.5 20.5l1.7-4.3A8.4 8.4 0 1 1 20.5 11.6Z"/>
+          <path d="M9.2 9c.5 2.4 2.4 4.3 4.8 4.8l.9-1.4 2 .7v1.6c-3.4.5-6.9-2.6-7.4-6.1l1.6-.2Z"/>
+        </svg> WhatsApp
+      </a>
+      <!-- TODO(links): publicação real no Substack. -->
+      <a class="rodape__rede" href="#" rel="noopener noreferrer">
+        <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4 5h16M4 9.8h16M4 14.6h16V21l-8-4.4L4 21Z"/>
+        </svg> Substack
+      </a>
+      <!-- TODO(links): e-mail real de contato da MEGER. -->
+      <a class="rodape__rede" href="#">
+        <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="2.8" y="5" width="18.4" height="14" rx="2.4"/><path d="m3.6 7.4 8.4 5.6 8.4-5.6"/>
+        </svg> E-mail
+      </a>
+    </nav>
+  </div>
+
+  <div class="envelope rodape__base">
+    <p>© 2026 MEGER.</p>
+  </div>
+</footer>
+
+<script src="revela.js"></script>
+<script src="assets/badge-hero.js"></script>
+</body>
+</html>
